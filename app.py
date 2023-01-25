@@ -7,6 +7,7 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import *
+import keep_alive
 
 app = Flask(__name__)
 
@@ -39,4 +40,5 @@ def handle_message(event):
 import os
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
+    keep_alive.keep_alive()
     app.run(host='0.0.0.0', port=port)
